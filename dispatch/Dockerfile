@@ -1,4 +1,4 @@
-FROM docker.io/s390x/golang
+FROM quay.io/bgirriam/golang
 
 WORKDIR /go/src/app
 
