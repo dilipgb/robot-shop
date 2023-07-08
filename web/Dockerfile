@@ -17,7 +17,7 @@ RUN if [ -n "$KEY" ]; then curl \
     fi
 
 
-FROM docker.io/s390x/nginx:1.19
+FROM quay.io/bgirriam/nginx:1.19
 
 EXPOSE 8080
 
