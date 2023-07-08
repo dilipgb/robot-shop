@@ -1,4 +1,4 @@
-FROM docker.io/s390x/python:3.6
+FROM quay.io/bgirriam/python:3.6
 
 EXPOSE 8080
 USER root
