@@ -1,9 +1,9 @@
 # Registry and rpository for Docker images
 # Default is docker/robotshop/image:latest
 image:
-  repo: robotshop
+  repo: "quay.io/bgirriam"
   version: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 # Alternative payment gateway URL
 # Default is https://www.paypal.com
@@ -26,10 +26,10 @@ psp:
 nodeport: false
 
 # "special" Openshift. Set to true when deploying to any openshift flavour
-openshift: false
+openshift: true
 
 # Storage class to use with redis statefulset.
 redis:
   storageClassName: standard
 
-ocCreateRoute: false
+ocCreateRoute: true
