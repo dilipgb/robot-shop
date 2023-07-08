@@ -30,6 +30,6 @@ openshift: true
 
 # Storage class to use with redis statefulset.
 redis:
-  storageClassName: standard
+  storageClassName: managed-nfs-storage
 
 ocCreateRoute: true
