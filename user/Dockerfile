@@ -1,4 +1,4 @@
-FROM docker.io/s390x/node
+FROM quay.io/bgirriam/node
 
 ENV INSTANA_AUTO_PROFILE true
 
