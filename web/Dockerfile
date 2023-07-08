@@ -1,4 +1,4 @@
-FROM docker.io/ibmcom/alpine-helm-s390x:latest AS build
+FROM quay.io/bgirriam/alpine-helm-s390x:latest AS build
 ARG KEY
 
 WORKDIR /instana
