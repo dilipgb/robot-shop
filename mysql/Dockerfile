@@ -1,4 +1,4 @@
-FROM docker.io/ibmcom/mysql-s390x:5.7.34
+FROM quay.io/bgirriam/mysql-s390x:5.7.34
 
 VOLUME /data
 
