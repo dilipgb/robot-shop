@@ -1,0 +1,27 @@
+apiVersion: serving.knative.dev/v1
+kind: service
+metadata:
+spec:
+  template:
+    spec:
+      serviceAccountName: robot-shop
+      containers:
+      - name: user
+        image: quay.io/dbhagava/rs-user:v1
+        imagePullPolicy: ifNotPresent
+        env:
+          # agent networking access
+          - name: INSTANA_AGENT_HOST
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 200m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+      restartPolicy: Always

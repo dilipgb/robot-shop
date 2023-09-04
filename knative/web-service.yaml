@@ -1,0 +1,27 @@
+apiVersion: serving.knative.dev/v1
+kind: service
+metadata:
+  name: web
+spec:
+  template:
+    spec:
+      serviceAccountName: robot-shop
+      containers:
+      - name: web
+        image: 
+        imagePullPolicy: ifNotPresent
+        env:
+        - name: INSTANA_EUM_KEY
+          value: null
+        - name: INSTANA_EUM_REPORTING_URL
+          value: https://eum-eu-west-1.instana.io
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 200m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
+      restartPolicy: Always
