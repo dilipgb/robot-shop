@@ -1,17 +1,16 @@
 apiVersion: serving.knative.dev/v1
 kind: service
 metadata:
-  name: user
+  name: cart
 spec:
   template:
     spec:
-      serviceAccountName: robot-shop
       containers:
-      - name: user
-        image: quay.io/dbhagava/rs-user:v1
-        imagePullPolicy: ifNotPresent
+      - name: cart
+        image: quay.io/dbhagava/cart:v1
+        imagePullPolicy: IfNotPresent
+        # agent networking access
         env:
-          # agent networking access
           - name: INSTANA_AGENT_HOST
             valueFrom:
               fieldRef:
@@ -25,4 +24,3 @@ spec:
           requests:
             cpu: 100m
             memory: 50Mi
-      restartPolicy: Always
