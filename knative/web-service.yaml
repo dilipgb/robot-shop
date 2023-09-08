@@ -5,11 +5,10 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccountName: robot-shop
       containers:
       - name: web
-        image: 
-        imagePullPolicy: ifNotPresent
+        image: quay.io/dbhagava/web:v2
+        imagePullPolicy: IfNotPresent
         env:
         - name: INSTANA_EUM_KEY
           value: null
@@ -24,4 +23,3 @@ spec:
           requests:
             cpu: 100m
             memory: 50Mi
-      restartPolicy: Always
