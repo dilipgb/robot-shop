@@ -1,0 +1,23 @@
+apiVersion: serving.knative.dev/v1
+kind: service
+metadata:
+  name: catalogue
+spec:
+  template:
+    spec:
+      containers:
+      - name: catalogue
+        image: quay.io/dbhagava/rs-catalogue:v1
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: INSTANA_AGENT_HOST
+            value: 192.168.13.53
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 200m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 50Mi
