@@ -14,9 +14,9 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
           - name: CATALOGUE_HOST
-            value: {{ .Values.host.CATALOGUE_HOST }}.{{ .Release.Namespace }}.svc.cluster.local
+            value: catalogue.default.svc.cluster.local
           - name: CATALOGUE_PORT
-            value: "{{ .Values.host.CATALOGUE_PORT }}"
+            value: "8080"
         ports:
         - containerPort: 8080
         resources:
