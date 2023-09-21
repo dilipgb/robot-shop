@@ -4,6 +4,9 @@ metadata:
   name: web
 spec:
   template:
+    metadata:
+      labels:
+        networking.knative.dev/visibility: cluster-local
     spec:
       containers:
       - name: web

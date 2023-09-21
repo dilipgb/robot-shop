@@ -4,15 +4,15 @@ metadata:
   name: cart
 spec:
   template:
+    metadata:
+      labels:
+        networking.knative.dev/visibility: cluster-local
     spec:
       containers:
       - name: cart
         image: quay.io/dbhagava/cart:v1
         imagePullPolicy: IfNotPresent
         # agent networking access
-        env:
-          - name: INSTANA_AGENT_HOST
-            value: 192.168.13.53
         ports:
         - containerPort: 8080
         resources:

@@ -4,14 +4,19 @@ metadata:
   name: catalogue
 spec:
   template:
+    metadata:
+      labels:
+        networking.knative.dev/visibility: cluster-local
     spec:
       containers:
       - name: catalogue
         image: quay.io/dbhagava/rs-catalogue:v1
         imagePullPolicy: IfNotPresent
         env:
-          - name: INSTANA_AGENT_HOST
-            value: 192.168.13.53
+          - name: CATALOGUE_HOST
+            value: {{ .Values.host.CATALOGUE_HOST }}.{{ .Release.Namespace }}.svc.cluster.local
+          - name: CATALOGUE_PORT
+            value: "{{ .Values.host.CATALOGUE_PORT }}"
         ports:
         - containerPort: 8080
         resources:
